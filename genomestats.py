@@ -43,11 +43,6 @@ print('Number of sequences:', counter)
 print('Number of nucleotides:', letters)
 print('##############################')
 
-# N50
-# need total number of contigs
-# then half of total number
-# add contigs?
-
 # mean
 print('#####~mean~###################')
 print(letters / len(lengths))
@@ -64,10 +59,65 @@ else:
 # standard deviation
 print('#####~standard~deviation~#####')
 var = 0
-for i in lengths:
-	var += ((i - mean) ** 2) / (counter - 1)
+for l in lengths:
+	var += ((l - mean) ** 2) / (counter - 1)
 print(var ** 0.5)
 print(statistics.stdev(lengths))
+
+# N50
+print('#####~N50~###################')
+# need total number of contigs
+# then half of total number
+# add contigs
+fifty = 0
+stop = letters / 2
+index = 0
+for l in lengths:
+	if fifty <= stop:
+		fifty += l
+		index += 1
+	else:
+		print(lengths[index])
+		break
+
+		
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	
