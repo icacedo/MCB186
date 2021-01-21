@@ -77,8 +77,9 @@ for l in lengths:
 		fifty += l
 		index += 1
 	else:
-		print(lengths[index])
+		print(lengths[index - 1])
 		break
+		
 
 		
 
