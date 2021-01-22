@@ -48,7 +48,42 @@ for l in lengths:
 		break
 		
 print('##### GC fraction #########################')
-#for seq in seqlib.read_fasta(arg.fasta):
-	#print(seq)
+# if i leave it as 'for seq in', it prints both the name and the seq
+ind = []
+for name, seq in seqlib.read_fasta(arg.fasta):
+	for p in range(len(seq)):
+		ind.append(seq[p])
+# same amount of nts here as in lengths
+# print(ind)
+# print(len(ind))
+	
+GC = 0
+notACTG = 0
+for nt in ind:
+	if nt == 'G' or nt == 'g' or nt == 'C' or nt == 'c':
+		GC += 1
+	elif nt == 'A' or nt == 'a' or nt == 'T' or nt == 't':
+		GC += 0
+	else:	
+		notACTG += 1
+print(GC/(total_size - notACTG))
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 		
 
