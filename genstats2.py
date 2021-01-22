@@ -31,7 +31,7 @@ print('shortest:', lengths[len(lengths) - 1])
 print('##### Average and median contig sizes #####')
 print('Avg:', sum(lengths)/len(lengths))
 if len(lengths)%2 == 0:
-	print('Med:', lengths[len(lengths)/2 - 1] + lengths[len(lengths)/2])
+	print('Med:', lengths[len(lengths)//2 - 1] + lengths[len(lengths)//2])
 else:
 	print('Med:', lengths[(len(lengths) - 1)//2])
 
@@ -48,5 +48,7 @@ for l in lengths:
 		break
 		
 print('##### GC fraction #########################')
+#for seq in seqlib.read_fasta(arg.fasta):
+	#print(seq)
 		
 
