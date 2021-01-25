@@ -68,6 +68,9 @@ for nt in ind:
 		notACTG += 1
 print(GC/(total_size - notACTG))
 
+
+# using count() is MUCH faster
+
 	
 	
 	
