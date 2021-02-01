@@ -28,3 +28,41 @@ def read_fasta(filename):
 			seqs.append(line)
 	yield(name, ''.join(seqs))
 	fp.close()
+	
+def rev_comp(seq):
+
+	comp = str.maketrans('ACGTRYMKWSBDHV', 'TGCAYRKMWSVHDB')
+	anti = seq.translate(comp)[::-1]
+	return anti
+	
+def read_fastq(filename):
+	
+	if filename.endswith('.gz'): 
+		fp = gzip.open(filename, 'rt')
+	else: 
+		fp = open(filename)
+
+	while True:
+		name = fp.readline()
+		seq = fp.readline()
+		plus = fp.readline()
+		qual = fp.readline()
+		if name == '': break
+		yield(name, seq, qual)
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
