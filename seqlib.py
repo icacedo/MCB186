@@ -2,6 +2,8 @@
 # Never copy-paste functions from one program to another
 # make a library instead and import functions
 import gzip
+import random
+import math
 
 def read_fasta(filename):
 	
@@ -50,7 +52,20 @@ def read_fastq(filename):
 		if name == '': break
 		yield(name, seq, qual)
 		
+def random_dna(length, A, C, G, T):
+	
+	assert(math.isclose(1, A+C+G+T, abs_tol = 0.001))
+	seq = []
+	for i in range(length):
+		r = random.random()
+		if r < A:		seq.append('A')
+		elif r < A + C:	seq.append('C')
+		elif r < A + C +G:	seq.append('G')
+		else:			seq.append('T')
+	return ''.join(seq)
 		
+		
+
 		
 		
 		
